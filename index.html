@@ -112,41 +112,4 @@
 
   <!-- Efeitos sonoros engraçados -->
   <audio id="efeito1" src="https://cdn.pixabay.com/audio/2022/03/15/audio_20a9d0e4b0.mp3"></audio>
-  <audio id="efeito2" src="https://cdn.pixabay.com/audio/2022/03/15/audio_5fcb0f63d1.mp3"></audio>
-  <audio id="efeito3" src="https://cdn.pixabay.com/audio/2022/03/15/audio_9a0503df23.mp3"></audio>
-
-  <script>
-    const heartsContainer = document.getElementById('hearts');
-    setInterval(() => {
-      const heart = document.createElement('div');
-      heart.classList.add('heart');
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.animationDuration = 5 + Math.random() * 5 + 's';
-      heartsContainer.appendChild(heart);
-      setTimeout(() => heart.remove(), 10000);
-    }, 500);
-
-    // Quando o botão é clicado, toca música e efeitos
-    const playButton = document.getElementById('playButton');
-    playButton.addEventListener('click', () => {
-      playButton.style.display = 'none';
-
-      // Abrir player do YouTube invisível
-      const yt = document.createElement('iframe');
-      yt.width = 0;
-      yt.height = 0;
-      yt.src = "https://www.youtube.com/embed/izGwDsrQ1eQ?autoplay=1&loop=1&playlist=izGwDsrQ1eQ";
-      yt.allow = "autoplay";
-      yt.frameBorder = "0";
-      document.body.appendChild(yt);
-
-      // Iniciar efeitos sonoros aleatórios
-      const efeitos = ['efeito1', 'efeito2', 'efeito3'];
-      setInterval(() => {
-        const efeito = document.getElementById(efeitos[Math.floor(Math.random() * efeitos.length)]);
-        efeito.play();
-      }, 8000);
-    });
-  </script>
-</body>
-</html>
+  <
