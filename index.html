@@ -88,6 +88,11 @@
     <div class="hearts" id="hearts"></div>
   </div>
 
+  <!-- Música de fundo -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="https://files.catbox.moe/wwbcjh.mp4" type="audio/mpeg">
+  </audio>
+
   <script>
     // Corações flutuantes
     const heartsContainer = document.getElementById('hearts');
@@ -99,12 +104,6 @@
       heartsContainer.appendChild(heart);
       setTimeout(() => heart.remove(), 10000);
     }, 500);
-
-    // Abrir música automaticamente ao carregar a página
-    window.onload = function() {
-      const youtubeUrl = "https://www.youtube.com/watch?v=izGwDsrQ1eQ?autoplay=1";
-      window.open(youtubeUrl, "_blank");
-    };
   </script>
 </body>
 </html>
