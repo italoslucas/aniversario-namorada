@@ -110,39 +110,6 @@
 
   <button id="playButton">💖 Tocar música</button>
 
-  <!-- Efeitos engraçados -->
-  <audio id="efeito1" src="https://youtu.be/JqIHlDVqUTw?si=uDEd4LgnernRMr03"></audio>
-  <audio id="efeito2" src="https://cdn.pixabay.com/audio/2022/03/15/audio_5fcb0f63d1.mp3"></audio>
-  <audio id="efeito3" src="https://cdn.pixabay.com/audio/2022/03/15/audio_9a0503df23.mp3"></audio>
-
-  <script>
-    // Corações flutuando
-    const heartsContainer = document.getElementById('hearts');
-    setInterval(() => {
-      const heart = document.createElement('div');
-      heart.classList.add('heart');
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.animationDuration = 5 + Math.random() * 5 + 's';
-      heartsContainer.appendChild(heart);
-      setTimeout(() => heart.remove(), 10000);
-    }, 500);
-
-    // Efeitos + link YouTube
-    const playButton = document.getElementById('playButton');
-    const efeitos = ['efeito1', 'efeito2', 'efeito3'];
-
-    playButton.addEventListener('click', () => {
-      playButton.style.display = 'none';
-
-      // Abre música original no YouTube
-      window.open("https://youtu.be/izGwDsrQ1eQ?si=agjlBdXrbpndj0xK", "_blank");
-
-      // Toca efeitos engraçados
-      setInterval(() => {
-        const efeito = document.getElementById(efeitos[Math.floor(Math.random() * efeitos.length)]);
-        efeito.play();
-      }, 8000);
-    });
-  </script>
-</body>
-</html>
+  <!-- Efeitos sonoros engraçados -->
+  <audio id="efeito1" src="https://www.youtube.com/watch?v=IxJx124O8zE&list=RDIxJx124O8zE&start_radio=1"></audio>
+  <
