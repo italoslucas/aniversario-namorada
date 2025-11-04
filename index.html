@@ -10,22 +10,31 @@
     margin: 0;
     height: 100vh;
     overflow: hidden;
+    background-color: #000;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background-color: #000;
-    color: white;
-  }
-
-  .container {
-    text-align: center;
-    animation: fadeIn 2s ease-in;
+    justify-content: center;
     position: relative;
   }
 
+  /* Fundo preto fixo */
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    text-align: center;
+    z-index: 2;
+    animation: fadeIn 2s ease-in;
+  }
+
   @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
+    from { opacity: 0; transform: scale(0.95); }
     to { opacity: 1; transform: scale(1); }
   }
 
@@ -33,8 +42,9 @@
     width: 90vw;
     max-width: 450px;
     border-radius: 20px;
-    box-shadow: 0 0 30px rgba(255, 105, 180, 0.7);
+    box-shadow: 0 0 40px rgba(255, 105, 180, 0.8);
     animation: float 6s ease-in-out infinite;
+    z-index: 1;
   }
 
   @keyframes float {
@@ -44,43 +54,44 @@
 
   h1 {
     font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 2em;
+    font-weight: 700;
+    font-size: 2.2em;
     text-transform: uppercase;
-    margin-top: 20px;
-    background: linear-gradient(90deg, #fff, #ffb6c1, #ff69b4, #fff);
-    background-size: 400%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: textShine 4s linear infinite, glow 2s ease-in-out infinite alternate;
-  }
-
-  @keyframes textShine {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
+    color: #fff;
+    text-shadow: 0 0 20px #ff69b4, 0 0 40px #ff1493;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    animation: glow 2s ease-in-out infinite alternate;
   }
 
   @keyframes glow {
     from { text-shadow: 0 0 15px #ff69b4; }
-    to { text-shadow: 0 0 30px #fff; }
+    to { text-shadow: 0 0 35px #fff; }
   }
 
   .message {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.4em;
+    font-size: 1.6em;
     text-transform: uppercase;
     text-align: center;
-    margin-top: 40px;
-    opacity: 0;
     color: #fff;
-    text-shadow: 0 0 20px #ff69b4, 0 0 30px #ff1493;
+    text-shadow: 0 0 25px #ff69b4, 0 0 45px #ff1493;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
     animation: fadeInText 3s ease-in-out forwards;
-    animation-delay: 6s;
+    animation-delay: 5s;
+    z-index: 3;
   }
 
   @keyframes fadeInText {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translate(-50%, 30px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
   }
 
   .hearts, .stars {
@@ -91,6 +102,7 @@
     height: 100%;
     overflow: hidden;
     pointer-events: none;
+    z-index: 4; /* agora passam por cima de tudo */
   }
 
   .heart, .star {
@@ -105,10 +117,10 @@
   }
 
   .star {
-    width: 15px;
-    height: 15px;
+    width: 18px;
+    height: 18px;
     background: url('https://cdn-icons-png.flaticon.com/512/1828/1828884.png') no-repeat center/contain;
-    opacity: 0.7;
+    opacity: 0.9;
   }
 
   @keyframes floatUp {
@@ -118,13 +130,14 @@
 </style>
 </head>
 <body>
+  <div class="overlay"></div>
+
+  <div class="hearts" id="hearts"></div>
+  <div class="stars" id="stars"></div>
+
   <div class="container">
-    <div class="hearts" id="hearts"></div>
-    <div class="stars" id="stars"></div>
-
-    <img src="https://i.postimg.cc/FRVkn41q/IMG-20251020-WA0054.jpg" alt="Minha namorada linda">
     <h1>FELIZ ANIVERSÁRIO, MEU AMOR ❤️</h1>
-
+    <img src="https://i.postimg.cc/FRVkn41q/IMG-20251020-WA0054.jpg" alt="Minha namorada linda">
     <div class="message">
       TE AMO MUITO 💘<br>
       VOCÊ É O MELHOR PRESENTE QUE A VIDA ME DEU 💞
@@ -137,7 +150,7 @@
   </audio>
 
   <script>
-    // Reproduz música ao clicar
+    // Toca música ao primeiro clique
     document.body.addEventListener('click', function() {
       const music = document.getElementById('bgMusic');
       music.play();
@@ -154,7 +167,7 @@
       heart.style.animationDuration = 5 + Math.random() * 5 + 's';
       heartsContainer.appendChild(heart);
       setTimeout(() => heart.remove(), 10000);
-    }, 500);
+    }, 400);
 
     // Estrelas fofas
     setInterval(() => {
@@ -164,7 +177,7 @@
       star.style.animationDuration = 3 + Math.random() * 4 + 's';
       starsContainer.appendChild(star);
       setTimeout(() => star.remove(), 8000);
-    }, 700);
+    }, 600);
   </script>
 </body>
 </html>
