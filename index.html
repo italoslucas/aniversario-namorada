@@ -89,11 +89,17 @@
   </div>
 
   <!-- Música de fundo -->
-  <audio id="bgMusic" autoplay loop>
-    <source src="https://files.catbox.moe/nld9mh.mp3" type="audio/mp3">
+  <audio id="bgMusic" loop>
+    <source src="https://files.catbox.moe/nld9mh.mp3" type="audio/mpeg">
   </audio>
 
   <script>
+    // Reproduz música ao primeiro toque
+    document.body.addEventListener('click', function() {
+      const music = document.getElementById('bgMusic');
+      music.play();
+    }, { once: true });
+
     // Corações flutuantes
     const heartsContainer = document.getElementById('hearts');
     setInterval(() => {
