@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Feliz aniversário, meu amor ❤️</title>
+<title>FELIZ ANIVERSÁRIO, MEU AMOR ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
 <style>
   body {
     margin: 0;
@@ -49,12 +50,14 @@
 
   h1 {
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
     font-size: 2.2em;
-    background: linear-gradient(90deg, #fff, #ffb6c1, #ff69b4, #ff1493, #fff);
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ffffff, #ffe4f1, #ffd6e9, #ffffff);
     background-size: 400%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -104,21 +107,22 @@
     to { transform: translateY(-10vh) scale(1.2); opacity: 0; }
   }
 
-  /* Mensagem surpresa */
+  /* Mensagem secreta */
   .message {
     position: absolute;
-    bottom: 15%;
+    bottom: 8%;
     left: 50%;
     transform: translateX(-50%);
-    font-family: 'Comic Sans MS', cursive;
-    font-size: 1.8em;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4em;
+    text-transform: uppercase;
     text-align: center;
     opacity: 0;
-    background: linear-gradient(90deg, #ffb6c1, #ff69b4, #ff1493, #ff69b4, #ffb6c1);
+    background: linear-gradient(90deg, #ffffff, #ffe0f0, #ffd1e0, #ffffff);
     background-size: 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 20px #ffb6c1, 0 0 40px #ff69b4;
+    text-shadow: 0 0 25px #fff, 0 0 40px #ff69b4;
     animation: fadeInText 3s ease-in-out forwards, colorPulse 5s linear infinite;
     animation-delay: 6s;
   }
@@ -138,10 +142,10 @@
 <body>
   <div class="container">
     <img src="https://i.postimg.cc/FRVkn41q/IMG-20251020-WA0054.jpg" alt="Minha namorada linda">
-    <h1>Feliz aniversário, meu amor ❤️</h1>
+    <h1>FELIZ ANIVERSÁRIO, MEU AMOR ❤️</h1>
     <div class="hearts" id="hearts"></div>
     <div class="stars" id="stars"></div>
-    <div class="message">Te amo muito 💘<br>Você é o melhor presente que a vida me deu 💞</div>
+    <div class="message">TE AMO MUITO 💘<br>VOCÊ É O MELHOR PRESENTE QUE A VIDA ME DEU 💞</div>
   </div>
 
   <!-- Música de fundo -->
@@ -150,7 +154,7 @@
   </audio>
 
   <script>
-    // Reproduz música ao primeiro toque
+    // Reproduz música ao clicar
     document.body.addEventListener('click', function() {
       const music = document.getElementById('bgMusic');
       music.play();
@@ -169,7 +173,7 @@
       setTimeout(() => heart.remove(), 10000);
     }, 500);
 
-    // Estrelinhas fofas
+    // Estrelas fofas
     setInterval(() => {
       const star = document.createElement('div');
       star.classList.add('star');
