@@ -98,7 +98,6 @@
     50% { transform: scale(1.05); box-shadow: 0 0 30px #fff; }
     100% { transform: scale(1); box-shadow: 0 0 15px #ff1493; }
   }
-
 </style>
 </head>
 <body>
@@ -110,6 +109,22 @@
 
   <button id="playButton">💖 Tocar música</button>
 
-  <!-- Efeitos sonoros engraçados -->
-  <audio id="efeito1" src="https://www.youtube.com/watch?v=IxJx124O8zE&list=RDIxJx124O8zE&start_radio=1"></audio>
-  <
+  <script>
+    // Corações flutuantes
+    const heartsContainer = document.getElementById('hearts');
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 5 + Math.random() * 5 + 's';
+      heartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
+    }, 500);
+
+    // Botão toca a música no YouTube
+    document.getElementById('playButton').addEventListener('click', () => {
+      window.open("https://youtu.be/izGwDsrQ1eQ?si=agjlBdXrbpndj0xK", "_blank");
+    });
+  </script>
+</body>
+</html>
